@@ -1,0 +1,21 @@
+{
+  "name": "conduit-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vladimir-Tarasov/conduit-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vladimir-Tarasov/conduit-playwright/issues"
+  },
+  "homepage": "https://github.com/Vladimir-Tarasov/conduit-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.36.1"
+  }
+}
