@@ -1,30 +1,23 @@
 import { test, expect } from '@playwright/test';
 
-// test.beforeAll(async ({ page }) => {
-//     await page.goto('https://demo.realworld.io/#/');
-// })
-
 test('registration', async ({ page }) => {
     const USER = [
-        'semen1',
-        'semen1@gmail.com',
+        'semen111',
+        'semen111@gmail.com',
         'senya_11'
     ];
 
-    const usernameField = page.getByPlaceholder('Username');
-    const email = page.getByPlaceholder('Email');
-    const password = page.getByPlaceholder('Password');
+    const userNameField = page.locator('input[ng-model="$ctrl.formData.username"]');
+    const email = page.locator('input[ng-model="$ctrl.formData.email"]');
+    const password = page.locator('input[ng-model="$ctrl.formData.password"]');
 
     await page.goto('https://demo.realworld.io/#/');
-    await page.getByRole('link', { name: 'Sign up' })
-        .click();
-    await usernameField.fill(USER[0]);
+    await page.locator('a[href="#/register"]').click();
+    await userNameField.fill(USER[0]);
     await email.fill(USER[1]);
     await password.fill(USER[2]);
-    await page.getByRole('button', { name: 'Sign up' })
+    await page.locator('button[class="btn btn-lg btn-primary pull-xs-right ng-binding"]')
         .click();
-    await expect(page.getByRole('link', { name: 'Sign up' }))
-        .not.toBeVisible();
-    await expect(page.getByRole('navigation'))
+    await expect(page.locator('[ui-sref="app.profile.main({ username: $ctrl.currentUser.username })"]'))
         .toHaveText([USER[0]]);
 })
