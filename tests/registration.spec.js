@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('registration', async ({ page }) => {
-    const USER = [
-        'semen111',
-        'semen111@gmail.com',
-        'senya_11'
-    ];
+export const USER = [
+    'semen111',
+    'semen111@gmail.com',
+    'senya_11'
+];
 
+test('registration', async ({ page }) => {
     const userNameField = page.locator('input[ng-model="$ctrl.formData.username"]');
     const email = page.locator('input[ng-model="$ctrl.formData.email"]');
     const password = page.locator('input[ng-model="$ctrl.formData.password"]');
